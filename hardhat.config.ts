@@ -24,8 +24,8 @@ const config: HardhatUserConfig = {
             url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
             accounts: [`${process.env.PRIVATE_KEY}`],
         },
-        goerli: {
-            url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
+        sepolia: {
+            url: `https://sepolia.infura.io/v3/`,
             accounts: [`${process.env.PRIVATE_KEY}`],
         },
         // mainnet: {
@@ -53,14 +53,14 @@ const config: HardhatUserConfig = {
     solidity: {
         compilers: [
             {
-                version: "0.8.19",
+                version: "0.5.16",
                 settings: {
                     optimizer: {
                         enabled: true,
                         runs: 200,
-                        details: {
-                            yul: true,
-                        },
+                        // details: {
+                        //     yul: true,
+                        // },
                     },
                     // viaIR: true,
                 },

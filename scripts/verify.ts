@@ -5,8 +5,10 @@ import { Config } from "./config";
 async function main() {
     try {
         await hre.run("verify:verify", {
-            address: contracts.greeter,
-            constructorArguments: [Config.greeter],
+            address: contracts.factory,
+            constructorArguments: [
+                "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+            ],
             hre,
         });
     } catch (err) {

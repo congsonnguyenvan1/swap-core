@@ -2,9 +2,11 @@ import * as hre from "hardhat";
 import * as fs from "fs";
 import { Signer } from "ethers";
 const ethers = hre.ethers;
-import { Config } from "./config";
 
-import { Greeter__factory, Greeter } from "../typechain-types";
+import {
+    UniswapV2Factory__factory,
+    UniswapV2Factory,
+} from "../typechain-types";
 
 async function main() {
     //Loading accounts
@@ -12,8 +14,8 @@ async function main() {
     const admin = await accounts[0].getAddress();
     //Loading contracts' factory
 
-    const Greeter: Greeter__factory = await ethers.getContractFactory(
-        "Greeter",
+    const Factory: UniswapV2Factory__factory = await ethers.getContractFactory(
+        "UniswapV2Factory",
     );
 
     // Deploy contracts
@@ -27,12 +29,14 @@ async function main() {
 
     console.log("ACCOUNT: " + admin);
 
-    const greeter: Greeter = await Greeter.deploy(Config.greeter);
+    const factory: UniswapV2Factory = await Factory.deploy(
+        "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    );
 
-    console.log("Greeter deployed at: ", greeter.address);
+    console.log("Factory deployed at: ", factory.address);
 
     const contractAddress = {
-        greeter: greeter.address,
+        factory: factory.address,
     };
 
     fs.writeFileSync("contracts.json", JSON.stringify(contractAddress));
