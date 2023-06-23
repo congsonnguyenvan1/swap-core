@@ -1,6 +1,6 @@
 {
   "name": "@congson1907/sunswap-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The core contract for SunSwap",
   "main": "index.js",
   "scripts": {
