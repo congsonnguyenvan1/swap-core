@@ -1,21 +1,25 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import * as hre from "hardhat";
+import { Signer } from "ethers";
+const ethers = hre.ethers;
 
-import { Greeter__factory, Greeter } from "../typechain-types";
+import { SunSwapFactory__factory, SunSwapFactory } from "../typechain-types";
 
 describe("Greater", () => {
     let user: SignerWithAddress;
-    let greeter: Greeter;
+    let accounts: Signer[];
+    let admin;
+    let factory;
 
     beforeEach(async () => {
-        const accounts: SignerWithAddress[] = await ethers.getSigners();
-        user = accounts[0];
+        accounts = await ethers.getSigners();
+        admin = await accounts[0].getAddress();
 
-        const Greeter: Greeter__factory = await ethers.getContractFactory(
-            "Greeter",
-        );
-        greeter = await Greeter.deploy("Hello");
+        const Factory: SunSwapFactory__factory =
+            await ethers.getContractFactory("SunSwapFactory");
+
+        factory = Factory.attach("0xddAbc0B1930a1Ec982CDF48E78e722D014F1B311");
     });
 
     describe("Deployment", () => {

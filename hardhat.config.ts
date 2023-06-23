@@ -3,7 +3,6 @@ import "@nomiclabs/hardhat-truffle5";
 import "@nomiclabs/hardhat-web3";
 import "@nomiclabs/hardhat-solhint";
 import "@nomiclabs/hardhat-etherscan";
-import "@openzeppelin/hardhat-upgrades";
 import "@typechain/hardhat";
 import "@nomicfoundation/hardhat-toolbox";
 import "solidity-coverage";

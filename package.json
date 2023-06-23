@@ -1,7 +1,7 @@
 {
-    "name": "solidity-template",
-    "version": "1.0.0",
-    "description": "A template for developing smart contract with solidity and hardhat.",
+    "name": "sunswap-core",
+    "version": "0.0.1",
+    "description": "The core contract for SunSwap",
     "main": "index.js",
     "scripts": {
         "clean": "shx rm -rf ./artifacts ./cache ./coverage ./types ./coverage.json && npm run typechain",
@@ -23,7 +23,7 @@
     "keywords": [
         "nft"
     ],
-    "author": "ndtr2000",
+    "author": "congson1907",
     "license": "MIT",
     "bugs": {
         "url": ""
@@ -36,7 +36,6 @@
         "@nomiclabs/hardhat-solhint": "^3.0.0",
         "@nomiclabs/hardhat-truffle5": "^2.0.7",
         "@nomiclabs/hardhat-web3": "^2.0.0",
-        "@openzeppelin/hardhat-upgrades": "^1.22.1",
         "@typescript-eslint/eslint-plugin": "^5.53.0",
         "@typescript-eslint/parser": "^5.53.0",
         "chai": "^4.3.7",
@@ -55,8 +54,6 @@
     },
     "dependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
-        "@openzeppelin/contracts": "4.8.1",
-        "@openzeppelin/contracts-upgradeable": "4.8.1",
         "@typechain/ethers-v5": "^10.2.0",
         "@typechain/hardhat": "^6.1.5",
         "@types/mocha": "^10.0.1",

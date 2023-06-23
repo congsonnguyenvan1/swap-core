@@ -3,10 +3,7 @@ import * as fs from "fs";
 import { Signer } from "ethers";
 const ethers = hre.ethers;
 
-import {
-    UniswapV2Factory__factory,
-    UniswapV2Factory,
-} from "../typechain-types";
+import { SunSwapFactory__factory, SunSwapFactory } from "../typechain-types";
 
 async function main() {
     //Loading accounts
@@ -14,8 +11,8 @@ async function main() {
     const admin = await accounts[0].getAddress();
     //Loading contracts' factory
 
-    const Factory: UniswapV2Factory__factory = await ethers.getContractFactory(
-        "UniswapV2Factory",
+    const Factory: SunSwapFactory__factory = await ethers.getContractFactory(
+        "SunSwapFactory",
     );
 
     // Deploy contracts
@@ -29,8 +26,8 @@ async function main() {
 
     console.log("ACCOUNT: " + admin);
 
-    const factory: UniswapV2Factory = await Factory.deploy(
-        "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    const factory: SunSwapFactory = await Factory.deploy(
+        "0xf17fa21738EE11e7a41BBE63129fA4e3C89f8B5A",
     );
 
     console.log("Factory deployed at: ", factory.address);
